@@ -17,7 +17,7 @@ const STORE_CONFIG = {
   // EDIT: your real UPI ID
   upiId: "yourupi@bank",
   // EDIT: put your real QR code image at assets/payment-qr.png
-  qrImagePath: "assets/payment-qr.png",
+  qrImagePath: "assets/qr.png",
 
   // Automated gateway (optional, for later): if you connect a real payment
   // provider (Razorpay / Stripe / etc.), set this to the checkout URL and
