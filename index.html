@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ValoriaSMP — Official Store</title>
+<meta name="description" content="Unlock exclusive ranks, perks and bundles for ValoriaSMP.">
+<link rel="icon" href="assets/logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============================================= -->
+<!-- NOTIFICATION TOASTS -->
+<!-- ============================================= -->
+<div class="toast-stack" id="toastStack" aria-live="polite"></div>
+
+<!-- ============================================= -->
+<!-- NAVBAR -->
+<!-- ============================================= -->
+<header class="navbar" id="navbar">
+  <div class="navbar-inner">
+    <a href="#home" class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <!-- EDIT: replace with <img src="assets/logo.png" alt="ValoriaSMP"> if you have a logo file -->
+        <svg viewBox="0 0 48 48" width="34" height="34">
+          <defs>
+            <linearGradient id="brandGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#6C8CFF"/>
+              <stop offset="1" stop-color="#B26CFF"/>
+            </linearGradient>
+          </defs>
+          <path d="M24 2 L44 14 V34 L24 46 L4 34 V14 Z" fill="url(#brandGrad)" opacity="0.18"/>
+          <path d="M24 2 L44 14 V34 L24 46 L4 34 V14 Z" fill="none" stroke="url(#brandGrad)" stroke-width="2"/>
+          <path d="M24 12 L34 18 V30 L24 36 L14 30 V18 Z" fill="url(#brandGrad)"/>
+        </svg>
+      </span>
+      <span class="brand-text">
+        <span class="brand-line1">VALORIA<b>SMP</b></span>
+        <span class="brand-line2">OFFICIAL STORE</span>
+      </span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#store" class="nav-link">Store</a>
+      <a href="#ranks" class="nav-link">Ranks</a>
+      <a href="#bundles" class="nav-link">Bundles</a>
+      <a href="#faq" class="nav-link">FAQ</a>
+    </nav>
+
+    <div class="navbar-actions">
+      <!-- EDIT: Discord invite link -->
+      <a href="https://discord.gg/PcC4bC69WG" target="_blank" rel="noopener" class="btn btn-ghost navbar-discord">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.369a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.058a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.009c.12.099.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.076.076 0 0 0-.04.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.029 19.84 19.84 0 0 0 6.001-3.03.077.077 0 0 0 .032-.055c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.331c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.418 2.157-2.418 1.211 0 2.176 1.094 2.157 2.418 0 1.334-.955 2.419-2.157 2.419zm7.974 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.418 2.157-2.418 1.211 0 2.176 1.094 2.157 2.418 0 1.334-.946 2.419-2.157 2.419z"/></svg>
+        Discord
+      </a>
+      <button class="cart-btn" id="cartBtn" aria-label="Open cart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3h2l2.4 12.4a2 2 0 0 0 2 1.6h7.2a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="9.5" cy="20.5" r="1.3" fill="currentColor" stroke="none"/><circle cx="17.5" cy="20.5" r="1.3" fill="currentColor" stroke="none"/></svg>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile nav -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#home" class="mobile-nav-link">Home</a>
+    <a href="#store" class="mobile-nav-link">Store</a>
+    <a href="#ranks" class="mobile-nav-link">Ranks</a>
+    <a href="#bundles" class="mobile-nav-link">Bundles</a>
+    <a href="#faq" class="mobile-nav-link">FAQ</a>
+    <a href="https://discord.gg/PcC4bC69WG" target="_blank" rel="noopener" class="mobile-nav-link mobile-nav-discord">Join Discord</a>
+  </div>
+</header>
+
+<!-- ============================================= -->
+<!-- HERO -->
+<!-- ============================================= -->
+<section class="hero" id="home">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="hero-grid"></div>
+    <div class="hero-glow hero-glow-1"></div>
+    <div class="hero-glow hero-glow-2"></div>
+  </div>
+
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <p class="hero-eyebrow">play.valoriasmp.fun · season two is live</p>
+      <h1 class="hero-heading">
+        Upgrade your<br><span class="grad-text">Valoria adventure.</span>
+      </h1>
+      <p class="hero-subtitle">Unlock exclusive ranks, perks and bundles for ValoriaSMP. Support the server and stand out in-game.</p>
+
+      <div class="hero-actions">
+        <a href="#store" class="btn btn-primary">Explore store</a>
+        <a href="https://discord.gg/PcC4bC69WG" target="_blank" rel="noopener" class="btn btn-outline">Join Discord</a>
+      </div>
+
+      <div class="hero-ip-card">
+        <div class="hero-ip-text">
+          <span class="hero-ip-label">Server IP</span>
+          <!-- EDIT: server IP -->
+          <span class="hero-ip-value" id="serverIpText">play.valoriasmp.fun</span>
+        </div>
+        <button class="btn btn-copy" id="copyIpBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+          Copy IP
+        </button>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="crystal-stage">
+        <div class="crystal-ring"></div>
+        <div class="crystal">
+          <div class="crystal-face f1"></div>
+          <div class="crystal-face f2"></div>
+          <div class="crystal-face f3"></div>
+        </div>
+        <div class="float-card float-card-1">
+          <span class="fc-icon">👑</span>
+          <span class="fc-text">VIP unlocked</span>
+        </div>
+        <div class="float-card float-card-2">
+          <span class="fc-icon">⚡</span>
+          <span class="fc-text">Instant perks</span>
+        </div>
+        <div class="float-card float-card-3">
+          <span class="fc-icon">💎</span>
+          <span class="fc-text">200+ players online</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================= -->
+<!-- STORE -->
+<!-- ============================================= -->
+<section class="store" id="store">
+  <div class="section-inner">
+    <div class="section-head">
+      <h2>Choose your upgrade.</h2>
+      <p>Everything you need to level up your ValoriaSMP experience.</p>
+    </div>
+
+    <div class="filter-bar" id="filterBar" role="tablist" aria-label="Product categories">
+      <button class="filter-chip is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+      <button class="filter-chip" data-filter="ranks" role="tab" aria-selected="false">Ranks</button>
+      <button class="filter-chip" data-filter="bundles" role="tab" aria-selected="false">Bundles</button>
+      <button class="filter-chip" data-filter="perks" role="tab" aria-selected="false">Perks</button>
+      <button class="filter-chip" data-filter="keys" role="tab" aria-selected="false">Keys</button>
+    </div>
+
+    <div class="product-grid" id="productGrid">
+      <!-- Product cards injected by script.js -->
+    </div>
+  </div>
+</section>
+
+<!-- ============================================= -->
+<!-- RANK SHOWCASE -->
+<!-- ============================================= -->
+<section class="ranks" id="ranks">
+  <div class="section-inner">
+    <div class="section-head">
+      <h2>Rank comparison.</h2>
+      <p>Pick the rank that matches how you want to play.</p>
+    </div>
+
+    <div class="rank-grid" id="rankGrid">
+      <!-- Rank comparison cards injected by script.js -->
+    </div>
+  </div>
+</section>
+
+<!-- ============================================= -->
+<!-- WHY VALORIA -->
+<!-- ============================================= -->
+<section class="why">
+  <div class="section-inner">
+    <div class="why-grid">
+      <div class="why-card">
+        <span class="why-icon">⚡</span>
+        <h3>Fast delivery</h3>
+        <p>Quick digital delivery after payment integration.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">🛡️</span>
+        <h3>Secure checkout</h3>
+        <p>Clean and secure checkout experience.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">💜</span>
+        <h3>Support Valoria</h3>
+        <p>Support helps ValoriaSMP continue growing.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">✨</span>
+        <h3>Exclusive perks</h3>
+        <p>Unlock special server upgrades.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================= -->
+<!-- BUNDLES ANCHOR (bundles live inside product grid, filterable) -->
+<!-- ============================================= -->
+<section class="bundles-cta" id="bundles">
+  <div class="section-inner bundles-cta-inner">
+    <div>
+      <h2>Bundles save you the most.</h2>
+      <p>Grouped perks and keys at a better price than buying separately.</p>
+    </div>
+    <button class="btn btn-primary" data-scroll-filter="bundles">View bundles</button>
+  </div>
+</section>
+
+<!-- ============================================= -->
+<!-- FAQ -->
+<!-- ============================================= -->
+<section class="faq" id="faq">
+  <div class="section-inner">
+    <div class="section-head">
+      <h2>Frequently asked questions.</h2>
+      <p>Still unsure about something? Ask in Discord and we'll help out.</p>
+    </div>
+
+    <div class="faq-list" id="faqList">
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          How do I receive my purchase?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Once payment is confirmed, your rank or item is delivered to the Minecraft username you enter at checkout. Make sure it's spelled exactly right.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          What Minecraft username should I enter?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Enter your exact in-game Java or Bedrock username, matching the account you use to join play.valoriasmp.fun.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          How long does delivery take?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Most purchases are delivered within a few minutes of a confirmed payment. During busy periods it can take a little longer.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Are purchases refundable?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Digital purchases are generally final once delivered. If something went wrong with your order, reach out in Discord and our team will look into it.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Where can I get support?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Join our Discord server and open a support ticket — our team is active there and happy to help.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          What payment methods are supported?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Payment integration is coming soon. Once it's live, this section will list every supported payment method.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================= -->
+<!-- DISCORD CTA -->
+<!-- ============================================= -->
+<section class="discord-cta">
+  <div class="section-inner discord-cta-inner">
+    <div class="discord-cta-glow" aria-hidden="true"></div>
+    <h2>Join the Valoria community.</h2>
+    <p>Play. Compete. Build. Become part of ValoriaSMP.</p>
+    <div class="discord-cta-actions">
+      <!-- EDIT: Discord invite link -->
+      <a href="https://discord.gg/PcC4bC69WG" target="_blank" rel="noopener" class="btn btn-primary">Join Discord</a>
+      <button class="btn btn-outline" id="ctaCopyIpBtn">Copy server IP</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================= -->
+<!-- FOOTER -->
+<!-- ============================================= -->
+<footer class="footer">
+  <div class="section-inner footer-inner">
+    <div class="footer-brand">
+      <span class="brand-line1">VALORIA<b>SMP</b></span>
+      <span class="brand-line2">OFFICIAL STORE</span>
+    </div>
+
+    <nav class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#store">Store</a>
+      <a href="#ranks">Ranks</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://discord.gg/PcC4bC69WG" target="_blank" rel="noopener">Discord</a>
+    </nav>
+
+    <div class="footer-ip">
+      <span>Server IP</span>
+      <strong>play.valoriasmp.fun</strong>
+    </div>
+  </div>
+  <div class="section-inner footer-bottom">
+    <p>© 2026 ValoriaSMP. All rights reserved.</p>
+    <p class="footer-disclaimer">Not affiliated with Mojang AB or Microsoft.</p>
+  </div>
+</footer>
+
+<!-- ============================================= -->
+<!-- CART DRAWER -->
+<!-- ============================================= -->
+<div class="overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+  <div class="cart-header">
+    <h3>Your cart</h3>
+    <button class="icon-btn" id="cartCloseBtn" aria-label="Close cart">&times;</button>
+  </div>
+
+  <div class="cart-body" id="cartBody">
+    <!-- Cart items injected by script.js -->
+  </div>
+
+  <div class="cart-footer">
+    <div class="cart-clear-row">
+      <button class="link-btn" id="cartClearBtn">Clear cart</button>
+    </div>
+    <div class="cart-total-row">
+      <span>Total</span>
+      <strong id="cartTotal">₹0</strong>
+    </div>
+    <button class="btn btn-primary btn-block" id="cartCheckoutBtn">Proceed to checkout</button>
+  </div>
+</aside>
+
+<!-- ============================================= -->
+<!-- PRODUCT MODAL -->
+<!-- ============================================= -->
+<div class="overlay" id="modalOverlay"></div>
+<div class="modal product-modal" id="productModal" aria-hidden="true">
+  <button class="icon-btn modal-close" id="productModalClose" aria-label="Close">&times;</button>
+  <div class="product-modal-inner">
+    <div class="product-modal-visual">
+      <span id="pmIcon">👑</span>
+    </div>
+    <div class="product-modal-content">
+      <span class="badge" id="pmBadge">Ranks</span>
+      <h3 id="pmName">Product name</h3>
+      <p class="product-modal-desc" id="pmDesc">Description</p>
+      <ul class="product-modal-features" id="pmFeatures"></ul>
+
+      <div class="product-modal-row">
+        <div class="qty-control">
+          <button class="qty-btn" id="pmQtyMinus" aria-label="Decrease quantity">-</button>
+          <span id="pmQty">1</span>
+          <button class="qty-btn" id="pmQtyPlus" aria-label="Increase quantity">+</button>
+        </div>
+        <span class="product-modal-price" id="pmPrice">₹0</span>
+      </div>
+
+      <div class="product-modal-actions">
+        <button class="btn btn-outline btn-block" id="pmAddToCart">Add to cart</button>
+        <button class="btn btn-primary btn-block" id="pmBuyNow">Buy now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================= -->
+<!-- CHECKOUT MODAL -->
+<!-- ============================================= -->
+<div class="overlay" id="checkoutOverlay"></div>
+<div class="modal checkout-modal" id="checkoutModal" aria-hidden="true">
+  <button class="icon-btn modal-close" id="checkoutModalClose" aria-label="Close">&times;</button>
+  <div class="checkout-inner">
+
+    <!-- STEP 1: details form -->
+    <div id="checkoutStepForm">
+      <h3>Checkout</h3>
+      <p class="checkout-subtitle">Fill in your details so we know where to deliver your order.</p>
+
+      <form id="checkoutForm" novalidate>
+        <label class="field">
+          <span>Minecraft username</span>
+          <input type="text" id="mcUsername" placeholder="Steve123" autocomplete="off">
+          <span class="field-error" id="mcUsernameError"></span>
+        </label>
+
+        <label class="field">
+          <span>Discord username</span>
+          <input type="text" id="discordUsername" placeholder="steve#0001" autocomplete="off">
+          <span class="field-error" id="discordUsernameError"></span>
+        </label>
+
+        <div class="order-summary">
+          <h4>Order summary</h4>
+          <div id="checkoutItems" class="order-summary-items"></div>
+          <div class="order-summary-total">
+            <span>Total</span>
+            <strong id="checkoutTotal">₹0</strong>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block" id="proceedPaymentBtn">Proceed to payment</button>
+      </form>
+    </div>
+
+    <!-- STEP 2: manual QR payment + staff verification -->
+    <div id="checkoutStepPayment" style="display:none;">
+      <h3>Complete your payment</h3>
+      <p class="checkout-subtitle">Scan the QR code or pay to the UPI ID below, then follow the steps to get your order delivered.</p>
+
+      <div class="order-id-row">
+        <span>Order ID</span>
+        <strong id="payOrderId">—</strong>
+      </div>
+
+      <div class="qr-box">
+        <!-- EDIT: replace with your real UPI QR code image -->
+        <img src="assets/payment-qr.png" alt="Scan to pay via UPI" id="payQrImage"
+             onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'qr-placeholder',textContent:'QR code image not added yet — see assets/payment-qr.png'}))">
+      </div>
+
+      <div class="upi-id-row">
+        <div>
+          <span class="hero-ip-label">Pay via UPI ID</span>
+          <!-- EDIT: your real UPI ID -->
+          <strong id="payUpiId">yourupi@bank</strong>
+        </div>
+        <button class="btn btn-copy" id="copyUpiBtn">Copy UPI ID</button>
+      </div>
+
+      <div class="order-summary">
+        <h4>Order summary</h4>
+        <div id="payOrderItems" class="order-summary-items"></div>
+        <div class="order-summary-total">
+          <span>Total to pay</span>
+          <strong id="payOrderTotal">₹0</strong>
+        </div>
+      </div>
+
+      <ol class="verify-steps">
+        <li>Pay the exact total above via the QR code or UPI ID.</li>
+        <li>Take a screenshot showing this order summary <strong>and</strong> your payment confirmation.</li>
+        <li>Send both screenshots in a Discord support ticket with your Order ID.</li>
+        <li>Staff will verify the payment and deliver your order manually.</li>
+      </ol>
+
+      <div class="checkout-payment-actions">
+        <a href="https://discord.gg/PcC4bC69WG" target="_blank" rel="noopener" class="btn btn-primary btn-block" id="payGoDiscordBtn">I've paid — send proof on Discord</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
