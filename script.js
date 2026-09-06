@@ -15,9 +15,9 @@ const STORE_CONFIG = {
   // Manual payment (current setup): buyer pays via UPI/QR, then sends a
   // screenshot to staff on Discord for manual verification + delivery.
   // EDIT: your real UPI ID
-  upiId: "yourupi@bank",
+  upiId: "89793398@ibl",
   // EDIT: put your real QR code image at assets/payment-qr.png
-  qrImagePath: "assets/payment-qr.png",
+  qrImagePath: "assets/qr.png",
 
   // Automated gateway (optional, for later): if you connect a real payment
   // provider (Razorpay / Stripe / etc.), set this to the checkout URL and
