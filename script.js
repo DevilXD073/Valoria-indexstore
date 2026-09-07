@@ -5,11 +5,11 @@
 
 const CONFIG = {
   serverName: "ValoriaSMP",
-  serverIp: "play.valoriasmp.fun",
+  serverIp: "valoriasmp.fun",
   discord: "https://discord.gg/PcC4bC69WG",
 
   // >>> PUT YOUR REAL UPI ID HERE <<<
-  upiId: "yourupi@bank",
+  upiId: "89793398@ibl",
 
   currency: "₹",
   coupon: { code: "VLS3", percent: 10, expires: "2026-09-20T23:59:59+05:30" }
